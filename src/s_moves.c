@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   s_moves.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dbajeux <dbajeux@student.19.be>            +#+  +:+       +#+        */
+/*   By: dbajeux <dbajeux@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 13:09:53 by dbajeux           #+#    #+#             */
-/*   Updated: 2024/08/20 17:32:42 by dbajeux          ###   ########.fr       */
+/*   Updated: 2024/08/28 13:46:00 by dbajeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
-
+/* 
 void	sa_moves(t_list **a_list)
 {
 	t_list	*first;
@@ -52,11 +52,11 @@ void	sb_moves(t_list **b_list)
 	first->index = second->index;
 	second->index = tmp_index;
     ft_printf("SB\n");
-}
+} */
 
-void ss_moves(t_list **a_list, t_list **b_list)
+/* void ss_moves(t_list **a_list, t_list **b_list)
 {
     sa_moves(a_list);
     sb_moves(b_list);
     ft_printf("SS\n");
-}
+} */

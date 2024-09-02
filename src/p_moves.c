@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   p_moves.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dbajeux <dbajeux@student.19.be>            +#+  +:+       +#+        */
+/*   By: dbajeux <dbajeux@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 17:23:34 by dbajeux           #+#    #+#             */
-/*   Updated: 2024/08/27 14:30:51 by dbajeux          ###   ########.fr       */
+/*   Updated: 2024/08/28 14:50:16 by dbajeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 #include <stdio.h>
 
-void	pa_moves(t_list **a_list, t_list **b_list)
+/* void	pa_moves(t_list **a_list, t_list **b_list)
 {
 	t_list *element_to_push;
 	if (*b_list == NULL)
@@ -25,7 +25,7 @@ void	pa_moves(t_list **a_list, t_list **b_list)
 	ft_reset_index(a_list);
 	ft_reset_index(b_list);
 
-	ft_printf("pa\n");
+	printf("pa\n");
 }
 
 void	pb_moves(t_list **a_list, t_list **b_list)
@@ -40,5 +40,5 @@ void	pb_moves(t_list **a_list, t_list **b_list)
 	ft_reset_index(a_list);
 	ft_reset_index(b_list);
 
-	ft_printf("pb\n");
-}
+	printf("pb\n");
+} */

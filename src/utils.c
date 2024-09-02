@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dbajeux <dbajeux@student.19.be>            +#+  +:+       +#+        */
+/*   By: dbajeux <dbajeux@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 20:51:25 by dbajeux           #+#    #+#             */
-/*   Updated: 2024/08/27 14:37:35 by dbajeux          ###   ########.fr       */
+/*   Updated: 2024/08/28 14:51:54 by dbajeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 
 // a ameliorer la fonction ne fonctionne pas correctement car je modifie l'emplacement des adresse dans ma liste en modifiant le content
-void	ft_print_list(t_list **list_a)
+/* void	ft_print_list(t_list **list_a)
 {
 	t_list	*current;
 	int n;
@@ -47,9 +47,9 @@ void	ft_reset_index(t_list **list)
 		if (current->index == 1)
 			check = 0;
 	}
-}
+} */
 
-t_list *found_head(t_list **list)
+/* t_list *found_head(t_list **list)
 {
 	t_list *current;
 
@@ -57,21 +57,21 @@ t_list *found_head(t_list **list)
 	while (current->index != 1) 
 		current = current->next;
 	return (current);
-}
+}*/
 void	ft_print_exit(void)
 {
-	ft_printf("Error");
+	printf("Error");
 	exit(1);
-}
+} 
 
-int	ft_count_tab_size(char **tab_str)
+/* int	ft_count_tab_size(char **tab_str)
 {
 	int	i;
 
 	while (tab_str[i])
 		i++;
 	return (i);
-}
+}  */
 
 long	ft_atol(const char *str)
 {

@@ -1,7 +1,7 @@
 APP_NAME = push_swap
 CC = gcc
 CFLAGS = -Wall -Werror -Wextra -g
-LIBFT_DIR = inc/libft_42
+LIBFT_DIR = inc/libft
 LIBFT = $(LIBFT_DIR)/libft.a
 INC_DIR = inc
 INC = -I$(INC_DIR) -I$(LIBFT_DIR)

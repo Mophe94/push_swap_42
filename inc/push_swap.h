@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dbajeux <dbajeux@student.19.be>            +#+  +:+       +#+        */
+/*   By: dbajeux <dbajeux@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 00:08:51 by dbajeux           #+#    #+#             */
-/*   Updated: 2024/08/27 14:32:01 by dbajeux          ###   ########.fr       */
+/*   Updated: 2024/08/28 13:49:39 by dbajeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 /*                                 INCLUDE                                    */
 /* ************************************************************************** */
 
-# include "../inc/libft_42/inc/libft.h"
+# include "../inc/libft/inc/libft.h"
 
 /* ************************************************************************** */
 /*                                FUNCTION                                    */
@@ -35,4 +35,5 @@ t_list	*found_head(t_list **list);
 void pa_moves(t_list **a_list,t_list **b_list);
 void	ft_reset_index(t_list **list);
 void	pb_moves(t_list **a_list, t_list **b_list);
+char *parse_arg_str(char **argv);
 #endif
