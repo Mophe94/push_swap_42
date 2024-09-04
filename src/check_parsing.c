@@ -1,44 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check.c                                            :+:      :+:    :+:   */
+/*   check_parsing.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dbajeux <dbajeux@student.s19.be>           +#+  +:+       +#+        */
+/*   By: dbajeux <dbajeux@student.19.be>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 17:04:54 by dbajeux           #+#    #+#             */
-/*   Updated: 2024/09/02 16:17:24 by dbajeux          ###   ########.fr       */
+/*   Updated: 2024/09/04 13:50:29 by dbajeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
-#include <stdio.h>
-
-char	*ft_strjoin_free_s1(char *s1, char *s2)
-{
-	char	*str_join;
-	int		i;
-
-	i = 0;
-	if (!s1 || !s2)
-		return (NULL);
-	str_join = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
-	if (!str_join)
-		return (NULL);
-	while (s1[i])
-	{
-		str_join[i] = s1[i];
-		i++;
-	}
-	i = 0;
-	while (s2[i])
-	{
-		str_join[i + ft_strlen(s1)] = s2[i];
-		i++;
-	}
-	str_join[i + ft_strlen(s1)] = '\0';
-	free(s1);
-	return (str_join);
-}
 
 char	*parse_arg_str(char **argv)
 {
@@ -59,7 +31,6 @@ char	*parse_arg_str(char **argv)
 		free(tmp);
 		i++;
 	}
-	printf("<%s>", str);
 	return (str);
 }
 
@@ -111,4 +82,22 @@ int	ft_check_double(char *str)
 		i++;
 	}
 	return (1);
+}
+
+void	string_into_list(char **tab, t_list **list)
+{
+	int i;
+	char *clean_str;
+	char **clean_tab;
+
+	i = 0;
+	clean_str = parse_arg_str(tab);
+	clean_tab = ft_split(clean_str, ' ');
+	while (clean_tab[i])
+	{
+		lst_new_circular(list, (void *)(long)ft_atol(clean_tab[i]));
+		i++;
+	}
+	free(clean_str);
+	ft_free(clean_tab);
 }

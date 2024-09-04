@@ -3,81 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dbajeux <dbajeux@student.s19.be>           +#+  +:+       +#+        */
+/*   By: dbajeux <dbajeux@student.19.be>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 20:51:25 by dbajeux           #+#    #+#             */
-/*   Updated: 2024/08/28 14:51:54 by dbajeux          ###   ########.fr       */
+/*   Updated: 2024/09/04 17:05:55 by dbajeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
-#include <stdio.h>
 
-
-// a ameliorer la fonction ne fonctionne pas correctement car je modifie l'emplacement des adresse dans ma liste en modifiant le content
-/* void	ft_print_list(t_list **list_a)
-{
-	t_list	*current;
-	int n;
-
-	n = 0;
-	current = *list_a;
-	while (n < 8)
-	{
-		printf(" [node : <%d> content : <%d> next : <%d>] \n", current->index, (int)(long)current->content,current->next->index);
-		current = current->next;
-		n++;
-	}
-}
-
-void	ft_reset_index(t_list **list)
-{
-	t_list	*current;
-	int		i;
-	int		check;
-
-	current = *list;
-	i = 1;
-	check = 1;
-	while ((current->index != 1) || check == 1)
-	{
-		current->index = i;
-		current = current->next;
-		i++;
-		if (current->index == 1)
-			check = 0;
-	}
-} */
-
-/* t_list *found_head(t_list **list)
-{
-	t_list *current;
-
-	current = *list;
-	while (current->index != 1) 
-		current = current->next;
-	return (current);
-}*/
 void	ft_print_exit(void)
 {
-	printf("Error");
+	ft_printf("Error");
 	exit(1);
-} 
-
-/* int	ft_count_tab_size(char **tab_str)
-{
-	int	i;
-
-	while (tab_str[i])
-		i++;
-	return (i);
-}  */
+}
 
 long	ft_atol(const char *str)
 {
-	int i;
-	int sign;
-	unsigned long long result;
+	int					i;
+	int					sign;
+	unsigned long long	result;
 
 	i = 0;
 	sign = 1;
@@ -96,4 +41,30 @@ long	ft_atol(const char *str)
 		i++;
 	}
 	return (result * sign);
+}
+char	*ft_strjoin_free_s1(char *s1, char *s2)
+{
+	char	*str_join;
+	int		i;
+
+	i = 0;
+	if (!s1 || !s2)
+		return (NULL);
+	str_join = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	if (!str_join)
+		return (NULL);
+	while (s1[i])
+	{
+		str_join[i] = s1[i];
+		i++;
+	}
+	i = 0;
+	while (s2[i])
+	{
+		str_join[i + ft_strlen(s1)] = s2[i];
+		i++;
+	}
+	str_join[i + ft_strlen(s1)] = '\0';
+	free(s1);
+	return (str_join);
 }

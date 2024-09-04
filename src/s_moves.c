@@ -3,60 +3,54 @@
 /*                                                        :::      ::::::::   */
 /*   s_moves.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dbajeux <dbajeux@student.s19.be>           +#+  +:+       +#+        */
+/*   By: dbajeux <dbajeux@student.19.be>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 13:09:53 by dbajeux           #+#    #+#             */
-/*   Updated: 2024/08/28 13:46:00 by dbajeux          ###   ########.fr       */
+/*   Updated: 2024/09/04 17:05:06 by dbajeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
-/* 
-void	sa_moves(t_list **a_list)
+
+void	sa_move(t_list **a_list)
 {
 	t_list	*first;
 	t_list	*second;
-	int		tmp_index;
-	t_list	*tmp;
+	t_list	*last;
 
-	if (*a_list == NULL)
-		return;
+	if (*a_list == NULL || (*a_list)->next == NULL)
+		return ;
 	first = *a_list;
-	second = (*a_list)->next;
-	tmp = first->next;
+	second = first->next;
+	last = lst_found_last_node(a_list);
 	first->next = second->next;
-	second->next = tmp;
+	second->next = first;
+	last->next = second;
 	*a_list = second;
-	tmp_index = first->index;
-	first->index = second->index;
-	second->index = tmp_index;
-    ft_printf("SA\n");
+	ft_printf("sa\n");
 }
 
-void	sb_moves(t_list **b_list)
+void	sb_move(t_list **b_list)
 {
-	t_list *first;
-	t_list *second;
-	int tmp_index;
-	t_list *tmp;
+	t_list	*first;
+	t_list	*second;
+	t_list	*last;
 
 	if (*b_list == NULL)
-		return;
+		return ;
 	first = *b_list;
-	second = (*b_list)->next;
-	tmp = first->next;
+	second = first->next;
+	last = lst_found_last_node(b_list);
 	first->next = second->next;
-	second->next = tmp;
+	second->next = first;
+	last->next = second;
 	*b_list = second;
-	tmp_index = first->index;
-	first->index = second->index;
-	second->index = tmp_index;
-    ft_printf("SB\n");
-} */
+	ft_printf("sb\n");
+}
 
-/* void ss_moves(t_list **a_list, t_list **b_list)
+void	ss_move(t_list **a_list, t_list **b_list)
 {
-    sa_moves(a_list);
-    sb_moves(b_list);
-    ft_printf("SS\n");
-} */
+	sa_move(a_list);
+	sb_move(b_list);
+	ft_printf("ss\n");
+}

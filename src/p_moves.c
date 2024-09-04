@@ -3,42 +3,58 @@
 /*                                                        :::      ::::::::   */
 /*   p_moves.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dbajeux <dbajeux@student.s19.be>           +#+  +:+       +#+        */
+/*   By: dbajeux <dbajeux@student.19.be>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 17:23:34 by dbajeux           #+#    #+#             */
-/*   Updated: 2024/08/28 14:50:16 by dbajeux          ###   ########.fr       */
+/*   Updated: 2024/09/04 16:53:44 by dbajeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
-#include <stdio.h>
 
-/* void	pa_moves(t_list **a_list, t_list **b_list)
+void	pa_move(t_list **a_list, t_list **b_list)
 {
-	t_list *element_to_push;
+	t_list	*element_to_push;
+	t_list	*last;
+
 	if (*b_list == NULL)
 		return ;
-    element_to_push = *b_list;
-    *b_list = (*b_list)->next;
-    element_to_push->next = *a_list;
-    *a_list = element_to_push;
-	ft_reset_index(a_list);
-	ft_reset_index(b_list);
-
-	printf("pa\n");
+	element_to_push = *b_list;
+	remove_first_node(b_list);
+	if (!(*a_list))
+	{
+		element_to_push->next = element_to_push;
+		*a_list = element_to_push;
+	}
+	else
+	{
+		last = lst_found_last_node(a_list);
+		element_to_push->next = *a_list;
+		last->next = element_to_push;
+		*a_list = element_to_push;
+	}
+	ft_printf("pa\n");
 }
-
-void	pb_moves(t_list **a_list, t_list **b_list)
+void	pb_move(t_list **a_list, t_list **b_list)
 {
-	t_list *element_to_push;
+	t_list	*element_to_push;
+	t_list	*last;
+
 	if (*a_list == NULL)
 		return ;
-    element_to_push = *a_list;
-    *a_list = (*a_list)->next;
-    element_to_push->next = *b_list;
-    *b_list = element_to_push;
-	ft_reset_index(a_list);
-	ft_reset_index(b_list);
-
-	printf("pb\n");
-} */
+	element_to_push = *a_list;
+	remove_first_node(a_list);
+	if (!(*b_list))
+	{
+		element_to_push->next = element_to_push;
+		*b_list = element_to_push;
+	}
+	else
+	{
+		last = lst_found_last_node(b_list);
+		element_to_push->next = *b_list;
+		last->next = element_to_push;
+		*b_list = element_to_push;
+	}
+	ft_printf("pb\n");
+}

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dbajeux <dbajeux@student.s19.be>           +#+  +:+       +#+        */
+/*   By: dbajeux <dbajeux@student.19.be>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 00:08:51 by dbajeux           #+#    #+#             */
-/*   Updated: 2024/08/28 13:49:39 by dbajeux          ###   ########.fr       */
+/*   Updated: 2024/09/04 17:07:07 by dbajeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,17 +23,39 @@
 /*                                FUNCTION                                    */
 /* ************************************************************************** */
 
-void	string_into_list(char *str, t_list **list_a);
-void	ft_print_exit(void);
-int		ft_count_tab_size(char **tab_str);
-long	ft_atol(const char *str);
+// check arg
 int		ft_check_error(char *str);
 int		ft_check_double(char *argv);
-void	sa_moves(t_list **a_list);
-void	ft_print_list(t_list **list_a);
-t_list	*found_head(t_list **list);
-void pa_moves(t_list **a_list,t_list **b_list);
-void	ft_reset_index(t_list **list);
-void	pb_moves(t_list **a_list, t_list **b_list);
-char *parse_arg_str(char **argv);
+
+// parsing
+void	string_into_list(char **tab, t_list **list);
+char	*parse_arg_str(char **argv);
+
+// list
+void	lst_new_circular(t_list **head, void *content);
+t_list	*lst_found_last_node(t_list **head);
+void	print_lst(t_list *head);
+
+// moove
+void	sa_move(t_list **a_list);
+void	sb_move(t_list **b_list);
+void	ss_move(t_list **a_list, t_list **b_list);
+void	pa_move(t_list **a_list, t_list **b_list);
+void	pb_move(t_list **a_list, t_list **b_list);
+void	ra_move(t_list **a_list);
+void	rb_move(t_list **b_list);
+void	rr_move(t_list **a_list, t_list **b_list);
+void	rra_move(t_list **a_list);
+void	rrb_move(t_list **b_list);
+void	rrr_move(t_list **a_list, t_list **b_list);
+
+// utils moves
+void	remove_first_node(t_list **list);
+void	lst_rotate(t_list **list);
+void	lst_reverse_rotate(t_list **list);
+
+// utils
+void	ft_print_exit(void);
+long	ft_atol(const char *str);
+char	*ft_strjoin_free_s1(char *s1, char *s2);
 #endif

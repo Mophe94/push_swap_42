@@ -10,12 +10,15 @@ OBJ_DIR = obj
 RM = rm -rf
 
 SRCS = \
-	push_swap.c \
+	main.c \
 	utils.c \
-	check.c \
+	check_parsing.c \
 	s_moves.c \
 	p_moves.c \
-
+	list.c \
+	r_moves.c \
+	rr_moves.c \
+	utils_moves.c
 SRC = $(addprefix $(SRC_DIR)/, $(SRCS))
 
 OBJ = $(SRC:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
