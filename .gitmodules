@@ -1,1 +1,9 @@
-
+[submodule "inc/inc/libft"]
+	path = inc/inc/libft
+	url = git@github.com:Mophe94/libft_42.git
+[submodule "inc/libft_42"]
+	path = inc/libft_42
+	url = git@github.com:Mophe94/libft_42.git
+[submodule "libft"]
+	path = libft
+	url = git@github.com:Mophe94/libft_42.git
