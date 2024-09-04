@@ -6,7 +6,7 @@
 /*   By: dbajeux <dbajeux@student.19.be>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 00:08:51 by dbajeux           #+#    #+#             */
-/*   Updated: 2024/09/04 17:07:07 by dbajeux          ###   ########.fr       */
+/*   Updated: 2024/09/04 22:33:58 by dbajeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ void	rrr_move(t_list **a_list, t_list **b_list);
 void	remove_first_node(t_list **list);
 void	lst_rotate(t_list **list);
 void	lst_reverse_rotate(t_list **list);
+void	lst_swap(t_list **list);
 
 // utils
 void	ft_print_exit(void);

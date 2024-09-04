@@ -6,7 +6,7 @@
 /*   By: dbajeux <dbajeux@student.19.be>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 00:11:46 by dbajeux           #+#    #+#             */
-/*   Updated: 2024/09/04 19:53:08 by dbajeux          ###   ########.fr       */
+/*   Updated: 2024/09/04 22:30:15 by dbajeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	main(int argc, char **argv)
 			|| !ft_check_double(parse_arg_str(argv)))
 			ft_print_exit();
 		string_into_list(argv, &list_a);
-		pb_move(&list_a, &list_b);
+ 		pb_move(&list_a, &list_b);
 		pb_move(&list_a, &list_b);
 		pb_move(&list_a, &list_b);
 		pb_move(&list_a, &list_b);
