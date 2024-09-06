@@ -6,57 +6,57 @@
 /*   By: dbajeux <dbajeux@student.19.be>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 16:53:15 by dbajeux           #+#    #+#             */
-/*   Updated: 2024/09/04 22:32:34 by dbajeux          ###   ########.fr       */
+/*   Updated: 2024/09/06 22:20:15 by dbajeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/push_swap.h"
+#include "../../inc/push_swap.h"
 
-void	remove_first_node(t_list **list)
+void	remove_first_node(t_stack **stack)
 {
-	t_list	*last;
+	t_stack	*last;
 
-	if ((*list)->next == *list)
+	if ((*stack)->next == *stack)
 	{
-		*list = NULL;
+		*stack = NULL;
 	}
 	else
 	{
-		last = lst_found_last_node(list);
-		*list = (*list)->next;
-		last->next = *list;
+		last = stack_found_last_node(stack);
+		*stack = (*stack)->next;
+		last->next = *stack;
 	}
 }
-void lst_swap(t_list **list)
+void stack_swap(t_stack **stack)
 {
-		t_list	*first;
-	t_list	*second;
-	t_list	*last;
+		t_stack	*first;
+	t_stack	*second;
+	t_stack	*last;
 
-	if (*list == NULL || (*list)->next == NULL)
+	if (*stack == NULL || (*stack)->next == NULL)
 		return ;
-	first = *list;
+	first = *stack;
 	second = first->next;
-	last = lst_found_last_node(list);
+	last = stack_found_last_node(stack);
 	first->next = second->next;
 	second->next = first;
 	last->next = second;
-	*list = second;
+	*stack = second;
 }
-void	lst_rotate(t_list **list)
+void	stack_rotate(t_stack **stack)
 {
-	if (!list)
+	if (!stack)
 		return ;
-	*list = (*list)->next;
+	*stack = (*stack)->next;
 }
-void	lst_reverse_rotate(t_list **list)
+void	stack_reverse_rotate(t_stack **stack)
 {
-	t_list *last;
+	t_stack *last;
 
-	if (!*list || (*list)->next == *list)
+	if (!*stack || (*stack)->next == *stack)
 		return ;
-	last = *list;
-	while (last->next != *list)
+	last = *stack;
+	while (last->next != *stack)
 		last = last->next;
-	*list = last;
+	*stack = last;
 }

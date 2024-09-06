@@ -10,15 +10,17 @@ OBJ_DIR = obj
 RM = rm -rf
 
 SRCS = \
-	main.c \
-	utils.c \
-	check_parsing.c \
-	s_moves.c \
-	p_moves.c \
-	list.c \
-	r_moves.c \
-	rr_moves.c \
-	utils_moves.c
+	main.c\
+	check_parsing/check_parsing.c\
+	check_parsing/check_parsing_utils.c\
+	moves/s_moves.c\
+	moves/p_moves.c\
+	moves/r_moves.c\
+	moves/rr_moves.c\
+	moves/utils_moves.c\
+	stack/init_stack.c\
+	stack/init_utils.c\
+	stack/stack.c
 SRC = $(addprefix $(SRC_DIR)/, $(SRCS))
 
 OBJ = $(SRC:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
@@ -32,6 +34,7 @@ $(APP_NAME): $(OBJ) $(LIBFT)
 	@$(CC) $(CFLAGS) -o $@ $(OBJ) $(LIBFT) $(INC)
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | $(OBJ_DIR)
+	mkdir -p $(dir $@)
 	@$(CC) $(CFLAGS) -c $< -o $@ $(INC)
 
 $(OBJ_DIR):

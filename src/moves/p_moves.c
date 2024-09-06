@@ -6,55 +6,55 @@
 /*   By: dbajeux <dbajeux@student.19.be>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 17:23:34 by dbajeux           #+#    #+#             */
-/*   Updated: 2024/09/04 16:53:44 by dbajeux          ###   ########.fr       */
+/*   Updated: 2024/09/06 22:20:36 by dbajeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/push_swap.h"
+#include "../../inc/push_swap.h"
 
-void	pa_move(t_list **a_list, t_list **b_list)
+void	pa_move(t_stack **a_stack, t_stack **b_stack)
 {
-	t_list	*element_to_push;
-	t_list	*last;
+	t_stack	*element_to_push;
+	t_stack	*last;
 
-	if (*b_list == NULL)
+	if (*b_stack == NULL)
 		return ;
-	element_to_push = *b_list;
-	remove_first_node(b_list);
-	if (!(*a_list))
+	element_to_push = *b_stack;
+	remove_first_node(b_stack);
+	if (!(*a_stack))
 	{
 		element_to_push->next = element_to_push;
-		*a_list = element_to_push;
+		*a_stack = element_to_push;
 	}
 	else
 	{
-		last = lst_found_last_node(a_list);
-		element_to_push->next = *a_list;
+		last = stack_found_last_node(a_stack);
+		element_to_push->next = *a_stack;
 		last->next = element_to_push;
-		*a_list = element_to_push;
+		*a_stack = element_to_push;
 	}
 	ft_printf("pa\n");
 }
-void	pb_move(t_list **a_list, t_list **b_list)
+void	pb_move(t_stack **a_stack, t_stack **b_stack)
 {
-	t_list	*element_to_push;
-	t_list	*last;
+	t_stack	*element_to_push;
+	t_stack	*last;
 
-	if (*a_list == NULL)
+	if (*a_stack == NULL)
 		return ;
-	element_to_push = *a_list;
-	remove_first_node(a_list);
-	if (!(*b_list))
+	element_to_push = *a_stack;
+	remove_first_node(a_stack);
+	if (!(*b_stack))
 	{
 		element_to_push->next = element_to_push;
-		*b_list = element_to_push;
+		*b_stack = element_to_push;
 	}
 	else
 	{
-		last = lst_found_last_node(b_list);
-		element_to_push->next = *b_list;
+		last = stack_found_last_node(b_stack);
+		element_to_push->next = *b_stack;
 		last->next = element_to_push;
-		*b_list = element_to_push;
+		*b_stack = element_to_push;
 	}
 	ft_printf("pb\n");
 }

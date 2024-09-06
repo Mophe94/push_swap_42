@@ -6,11 +6,11 @@
 /*   By: dbajeux <dbajeux@student.19.be>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 17:04:54 by dbajeux           #+#    #+#             */
-/*   Updated: 2024/09/04 13:50:29 by dbajeux          ###   ########.fr       */
+/*   Updated: 2024/09/06 22:22:51 by dbajeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/push_swap.h"
+#include "../../inc/push_swap.h"
 
 char	*parse_arg_str(char **argv)
 {
@@ -84,7 +84,7 @@ int	ft_check_double(char *str)
 	return (1);
 }
 
-void	string_into_list(char **tab, t_list **list)
+void	string_into_stack(char **tab, t_stack **stack)
 {
 	int i;
 	char *clean_str;
@@ -95,7 +95,7 @@ void	string_into_list(char **tab, t_list **list)
 	clean_tab = ft_split(clean_str, ' ');
 	while (clean_tab[i])
 	{
-		lst_new_circular(list, (void *)(long)ft_atol(clean_tab[i]));
+		stack_new_circular(stack, (void *)(long)ft_atol(clean_tab[i]));
 		i++;
 	}
 	free(clean_str);

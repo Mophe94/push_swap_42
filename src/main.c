@@ -6,7 +6,7 @@
 /*   By: dbajeux <dbajeux@student.19.be>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 00:11:46 by dbajeux           #+#    #+#             */
-/*   Updated: 2024/09/04 22:30:15 by dbajeux          ###   ########.fr       */
+/*   Updated: 2024/09/06 22:06:30 by dbajeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 int	main(int argc, char **argv)
 {
-	t_list	*list_a;
-	t_list	*list_b;
+	t_stack	*stack_a;
+	t_stack	*stack_b;
 
-	list_a = NULL;
-	list_b = NULL;
+	stack_a = NULL;
+	stack_b = NULL;
 	if (argc == 1)
 		exit(1);
 	else
@@ -26,22 +26,27 @@ int	main(int argc, char **argv)
 		if (!ft_check_error(parse_arg_str(argv))
 			|| !ft_check_double(parse_arg_str(argv)))
 			ft_print_exit();
-		string_into_list(argv, &list_a);
- 		pb_move(&list_a, &list_b);
-		pb_move(&list_a, &list_b);
-		pb_move(&list_a, &list_b);
-		pb_move(&list_a, &list_b);
-		print_lst(list_a);
-		print_lst(list_b);
-		ss_move(&list_a, &list_b);
-		print_lst(list_a);
-		print_lst(list_b);
-		rr_move(&list_a, &list_b);
-		print_lst(list_a);
-		print_lst(list_b);
-		rrr_move(&list_a, &list_b);
-		print_lst(list_a);
-		print_lst(list_b);
+		string_into_stack(argv, &stack_a);
+ 		pb_move(&stack_a, &stack_b); 
+ 		pb_move(&stack_a, &stack_b); 
+ 		pb_move(&stack_a, &stack_b); 
+ 		pb_move(&stack_a, &stack_b); 
+		stack_init_target_node_a(&stack_a, &stack_b);
+		print_stack(stack_a);
+/*		pb_move(&stack_a, &stack_b);
+		pb_move(&stack_a, &stack_b);
+		pb_move(&stack_a, &stack_b);
+		stack_init_index(&stack_a);
+		stack_init_index(&stack_b);
+		stack_init_median(&stack_a);
+		stack_init_median(&stack_b);
+		print_stack(stack_a);
+		print_stack(stack_b);
+		int len_a = stack_get_size(&stack_a);
+		int len_b = stack_get_size(&stack_b);
+		ft_printf("<%d>", len_a);
+		ft_printf("<%d>", len_b);  */
+		
 	}
 	return (0);
 }

@@ -1,34 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   r_moves.c                                          :+:      :+:    :+:   */
+/*   s_moves.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dbajeux <dbajeux@student.19.be>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/04 15:48:08 by dbajeux           #+#    #+#             */
-/*   Updated: 2024/09/04 22:29:14 by dbajeux          ###   ########.fr       */
+/*   Created: 2024/08/19 13:09:53 by dbajeux           #+#    #+#             */
+/*   Updated: 2024/09/06 22:20:23 by dbajeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/push_swap.h"
+#include "../../inc/push_swap.h"
 
-void	ra_move(t_list **a_list)
+void	sa_move(t_stack **a_stack)
 {
-	if (!a_list)
-		return ;
-	lst_rotate(a_list);
-	ft_printf("ra\n");
+	stack_swap(a_stack);
+	ft_printf("sa\n");
 }
-void	rb_move(t_list **b_list)
+
+void	sb_move(t_stack **b_stack)
 {
-	if (!b_list)
-		return ;
-	lst_rotate(b_list);
-	ft_printf("rb\n");
+	stack_swap(b_stack);
+	ft_printf("sb\n");
 }
-void	rr_move(t_list **a_list, t_list **b_list)
+
+void	ss_move(t_stack **a_stack, t_stack **b_stack)
 {
-	lst_rotate(a_list);
-	lst_rotate(b_list);
-	ft_printf("rr\n");
+	stack_swap(a_stack);
+	stack_swap(b_stack);
+	ft_printf("ss\n");
 }

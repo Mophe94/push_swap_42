@@ -6,11 +6,11 @@
 /*   By: dbajeux <dbajeux@student.19.be>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 20:51:25 by dbajeux           #+#    #+#             */
-/*   Updated: 2024/09/04 17:05:55 by dbajeux          ###   ########.fr       */
+/*   Updated: 2024/09/06 22:22:43 by dbajeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/push_swap.h"
+#include "../../inc/push_swap.h"
 
 void	ft_print_exit(void)
 {
