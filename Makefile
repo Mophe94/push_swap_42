@@ -11,6 +11,7 @@ RM = rm -rf
 
 SRCS = \
 	main.c\
+	push_swap.c\
 	check_parsing/check_parsing.c\
 	check_parsing/check_parsing_utils.c\
 	moves/s_moves.c\
@@ -19,8 +20,10 @@ SRCS = \
 	moves/rr_moves.c\
 	moves/utils_moves.c\
 	stack/init_stack.c\
-	stack/init_utils.c\
-	stack/stack.c
+	stack/init_target.c\
+	stack/stack.c\
+	sort/sort_stack.c\
+	sort/sort_stack_utils.c
 SRC = $(addprefix $(SRC_DIR)/, $(SRCS))
 
 OBJ = $(SRC:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)

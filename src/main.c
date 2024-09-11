@@ -6,11 +6,12 @@
 /*   By: dbajeux <dbajeux@student.19.be>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 00:11:46 by dbajeux           #+#    #+#             */
-/*   Updated: 2024/09/06 22:06:30 by dbajeux          ###   ########.fr       */
+/*   Updated: 2024/09/11 15:20:19 by dbajeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
+#include <unistd.h>
 
 int	main(int argc, char **argv)
 {
@@ -19,7 +20,7 @@ int	main(int argc, char **argv)
 
 	stack_a = NULL;
 	stack_b = NULL;
-	if (argc == 1)
+	if (argc == 1 || !argv[1][0])
 		exit(1);
 	else
 	{
@@ -27,26 +28,12 @@ int	main(int argc, char **argv)
 			|| !ft_check_double(parse_arg_str(argv)))
 			ft_print_exit();
 		string_into_stack(argv, &stack_a);
- 		pb_move(&stack_a, &stack_b); 
- 		pb_move(&stack_a, &stack_b); 
- 		pb_move(&stack_a, &stack_b); 
- 		pb_move(&stack_a, &stack_b); 
-		stack_init_target_node_a(&stack_a, &stack_b);
-		print_stack(stack_a);
-/*		pb_move(&stack_a, &stack_b);
-		pb_move(&stack_a, &stack_b);
-		pb_move(&stack_a, &stack_b);
-		stack_init_index(&stack_a);
-		stack_init_index(&stack_b);
-		stack_init_median(&stack_a);
-		stack_init_median(&stack_b);
-		print_stack(stack_a);
-		print_stack(stack_b);
-		int len_a = stack_get_size(&stack_a);
-		int len_b = stack_get_size(&stack_b);
-		ft_printf("<%d>", len_a);
-		ft_printf("<%d>", len_b);  */
-		
+		if (stack_is_sorted(&stack_a) == 1)
+			exit(1);
+		push_swap(&stack_a, &stack_b);
+		print_stack_b(stack_a);
 	}
+	
+	// free_stack
 	return (0);
 }

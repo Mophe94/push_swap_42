@@ -1,30 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rr_moves.c                                         :+:      :+:    :+:   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dbajeux <dbajeux@student.19.be>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/04 15:49:16 by dbajeux           #+#    #+#             */
-/*   Updated: 2024/09/10 18:19:13 by dbajeux          ###   ########.fr       */
+/*   Created: 2024/09/10 16:19:05 by dbajeux           #+#    #+#             */
+/*   Updated: 2024/09/10 21:21:16 by dbajeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/push_swap.h"
+#include "../inc/push_swap.h"
 
-void	rra_move(t_stack **a_stack)
+void push_swap(t_stack **stack_a,t_stack **stack_b)
 {
-	stack_reverse_rotate(a_stack);
-	ft_printf("rra\n");
-}
-void	rrb_move(t_stack **b_stack)
-{
-	stack_reverse_rotate(b_stack);
-	ft_printf("rrb\n");
-}
-void	rrr_move(t_stack **a_stack, t_stack **b_stack)
-{
-	stack_reverse_rotate(a_stack);
-	stack_reverse_rotate(b_stack);
-	ft_printf("rrr\n");
+    if(stack_get_size(stack_a) == 2)
+        sa_move(stack_a);
+    else if (stack_get_size(stack_a) == 3)
+        sort_for_three(stack_a);
+    else if (stack_get_size(stack_a) > 3)
+        sort_stack(stack_a,stack_b);
 }

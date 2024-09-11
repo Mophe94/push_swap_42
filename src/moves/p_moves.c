@@ -6,7 +6,7 @@
 /*   By: dbajeux <dbajeux@student.19.be>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 17:23:34 by dbajeux           #+#    #+#             */
-/*   Updated: 2024/09/06 22:20:36 by dbajeux          ###   ########.fr       */
+/*   Updated: 2024/09/09 13:32:05 by dbajeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	pa_move(t_stack **a_stack, t_stack **b_stack)
 	}
 	else
 	{
-		last = stack_found_last_node(a_stack);
+		last = stack_find_last_node(a_stack);
 		element_to_push->next = *a_stack;
 		last->next = element_to_push;
 		*a_stack = element_to_push;
@@ -51,7 +51,7 @@ void	pb_move(t_stack **a_stack, t_stack **b_stack)
 	}
 	else
 	{
-		last = stack_found_last_node(b_stack);
+		last = stack_find_last_node(b_stack);
 		element_to_push->next = *b_stack;
 		last->next = element_to_push;
 		*b_stack = element_to_push;

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   check_parsing_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dbajeux <dbajeux@student.19.be>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 20:51:25 by dbajeux           #+#    #+#             */
-/*   Updated: 2024/09/06 22:22:43 by dbajeux          ###   ########.fr       */
+/*   Updated: 2024/09/10 21:24:16 by dbajeux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	ft_print_exit(void)
 {
 	ft_printf("Error");
-	exit(1);
+	exit(0);
 }
 
 long	ft_atol(const char *str)
@@ -44,8 +44,8 @@ long	ft_atol(const char *str)
 }
 char	*ft_strjoin_free_s1(char *s1, char *s2)
 {
-	char	*str_join;
-	int		i;
+	char *str_join;
+	int i;
 
 	i = 0;
 	if (!s1 || !s2)

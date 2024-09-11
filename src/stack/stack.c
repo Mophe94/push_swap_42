@@ -12,44 +12,84 @@
 
 #include "../../inc/push_swap.h"
 
-t_stack *stack_find_max_content(t_stack **stack)
+t_stack	*stack_set_cheapest(t_stack **stack)
 {
-    t_stack *current;
-    t_stack *node_max;
-    long best_match;
-    
-    
-    best_match = LONG_MIN;
-    current = *stack;
-    while (current->next != *stack) 
-    {
-        if ((long)current->content > best_match) 
-        {
-            best_match = (long)current->content;
-            node_max = current;
-        }
-        current = current->next;
-    }
-    return (node_max);
+	t_stack	*current;
+	t_stack	*lower;
+
+	current = *stack;
+	lower = *stack;
+	while (1) 
+	{
+		if (current->push_cost < lower->push_cost)
+			lower = current;
+		current = current->next;
+		if (current == *stack) 
+			break;	
+	}
+	lower->cheapest = 1;
+	return (lower);
+}
+t_stack	*stack_find_max_content(t_stack **stack)
+{
+	t_stack	*current;
+	t_stack	*node_max;
+	long	best_match;
+
+	best_match = LONG_MIN;
+	current = *stack;
+	while (1)
+	{
+		if ((long)current->content > best_match)
+		{
+			best_match = (long)current->content;
+			node_max = current;
+		}
+		current = current->next;
+		if (current == *stack) 
+			break;
+	}
+	return (node_max);
+}
+t_stack *stack_find_min_content(t_stack **stack)
+{
+	t_stack *current;
+	t_stack *node_min;
+	long best_match;
+
+	best_match = LONG_MAX;
+	current = *stack;
+	while (1) 
+	{
+		if ((long)current->content < best_match) 
+		{
+			best_match =(long)current->content;
+			node_min = current;
+		}
+		current = current->next;
+		if (current == *stack)
+			break;
+	}
+	return (node_min);
 }
 
-int stack_get_size(t_stack **stack)
+int	stack_get_size(t_stack **stack)
 {
-    int i; 
-    t_stack *current;
+	int		i;
+	t_stack	*current;
 
-    i = 0;
-    current = *stack;
-    while (current->next != *stack) 
-    {
-        i++;
-        current = current->next;
-    }
-    i++;
-    return (i);
+	i = 0;
+	current = *stack;
+	while (current->next != *stack)
+	{
+		i++;
+		current = current->next;
+	}
+	i++;
+	return (i);
 }
 
-t_stack	*stack_found_last_node(t_stack **head)
+t_stack	*stack_find_last_node(t_stack **head)
 {
 	t_stack	*last;
 
@@ -82,7 +122,7 @@ void	stack_new_circular(t_stack **head, void *content)
 		new_node->next = *head;
 	}
 }
-void	print_stack(t_stack *head)
+void	print_stack_a(t_stack *head)
 {
 	t_stack	*current;
 
@@ -92,10 +132,36 @@ void	print_stack(t_stack *head)
 		return ;
 	}
 	current = head;
-	do
+	ft_printf("A stack\n");
+	while (1)
 	{
-		ft_printf("<Content: %d // index: %d // median : %d // target_content %d>\n", (int)(long)current->content,current->index,current->above_median,(int)(long)current->target_node->content);
+		ft_printf("<Content: %d // index: %d // median : %d // target_content %d // push_cost: %d\n", (int)(long)current->content, current->index,
+			current->above_median, (int)(long)current->target_node->content,
+			current->push_cost,stack_set_cheapest(&head));
 		current = current->next;
-	} while (current != head);
+		if (current == head) 
+			break;
+	}
+	ft_printf("___________________________\n");
+}
+void	print_stack_b(t_stack *head)
+{
+	t_stack	*current;
+
+	if (!head)
+	{
+		ft_printf("La stacke est vide.\n");
+		return ;
+	}
+	current = head;
+	ft_printf("B stack\n");
+	while (1)
+	{
+		ft_printf("<Content: %d // index: %d // median : %d\n",
+			(int)(long)current->content, current->index, current->above_median);
+		current = current->next;
+		if (current == head)
+			break;
+	}
 	ft_printf("___________________________\n");
 }
